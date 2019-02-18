@@ -26,6 +26,7 @@ import com.diegof.cursomc.repositories.CidadeRepository;
 import com.diegof.cursomc.repositories.ClienteRepository;
 import com.diegof.cursomc.repositories.EnderecoRepository;
 import com.diegof.cursomc.repositories.EstadoRepository;
+import com.diegof.cursomc.repositories.ItemPedidoRepository;
 import com.diegof.cursomc.repositories.PagamentoRepository;
 import com.diegof.cursomc.repositories.PedidoRepository;
 import com.diegof.cursomc.repositories.ProdutoRepository;
@@ -49,6 +50,8 @@ public class CursomcApplication implements CommandLineRunner{
 	private PedidoRepository pedidoRepository;
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -125,7 +128,7 @@ public class CursomcApplication implements CommandLineRunner{
 		p2.getItens().addAll(Arrays.asList(ip3));
 		p3.getItens().addAll(Arrays.asList(ip2));
 		
-		
+		itemPedidoRepository.save(Arrays.asList(ip1,ip2,ip3));
 		
 	}
 
